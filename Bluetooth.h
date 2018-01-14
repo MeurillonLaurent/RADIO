@@ -9,12 +9,12 @@ char _BluetoothReception ()
    if (HC06.available()) 
    {
        reception=HC06.read();
-       //Serial.println(reception);
+       Serial.println(reception);
    }
    if (Serial.available())
    {
        reception=Serial.read();
-       //HC06.println(reception);
+       HC06.println(reception);
    }
 return reception;
 }
