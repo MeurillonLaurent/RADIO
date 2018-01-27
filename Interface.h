@@ -40,3 +40,59 @@ void _Mise_Heure()
     }
   }
 }
+
+void _Eclairage()
+{
+    char commande=_BluetoothReception();
+    switch (commande)
+    {
+      case '0':
+        lc.setIntensity(0,0);
+        lc.setIntensity(1,0);
+        lc.setIntensity(2,0);
+        lc.setIntensity(3,0);
+        break;
+      case '1':
+        lc.setIntensity(0,2);
+        lc.setIntensity(1,2);
+        lc.setIntensity(2,2);
+        lc.setIntensity(3,2);
+        break;
+      case '2':
+        lc.setIntensity(0,4);
+        lc.setIntensity(1,4);
+        lc.setIntensity(2,4);
+        lc.setIntensity(3,4);
+        break;
+      case '3':
+        lc.setIntensity(0,6);
+        lc.setIntensity(1,6);
+        lc.setIntensity(2,6);
+        lc.setIntensity(3,6);
+        break;
+      case '4':
+        lc.setIntensity(0,8);
+        lc.setIntensity(1,8);
+        lc.setIntensity(2,8);
+        lc.setIntensity(3,8);
+        break;
+      case '5':
+        lc.setIntensity(0,10);
+        lc.setIntensity(1,10);
+        lc.setIntensity(2,10);
+        lc.setIntensity(3,10);
+        break;
+      case '6':
+        lc.setIntensity(0,12);
+        lc.setIntensity(1,12);
+        lc.setIntensity(2,12);
+        lc.setIntensity(3,12);
+        break;
+      case '7':
+        lc.setIntensity(0,14);
+        lc.setIntensity(1,14);
+        lc.setIntensity(2,14);
+        lc.setIntensity(3,14);
+        break;
+    }
+}

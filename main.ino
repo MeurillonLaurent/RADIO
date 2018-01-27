@@ -50,75 +50,14 @@ void loop()
 {
     char commande=_BluetoothReception();
     delay(200);
+    // réglage de l'heure
     if (commande=='H')
     {
       _Mise_Heure();
     }
+    // réglage de l'éclairage
     if (commande=='I')
     {
-      char commande=_BluetoothReception();
-    switch (commande)
-    {
-      case '0':
-        lc.setIntensity(0,0);
-        lc.setIntensity(1,0);
-        lc.setIntensity(2,0);
-        lc.setIntensity(3,0);
-        break;
-      case '1':
-        lc.setIntensity(0,1);
-        lc.setIntensity(1,1);
-        lc.setIntensity(2,1);
-        lc.setIntensity(3,1);
-        break;
-      case '2':
-        lc.setIntensity(0,2);
-        lc.setIntensity(1,2);
-        lc.setIntensity(2,2);
-        lc.setIntensity(3,2);
-        break;
-      case '3':
-        lc.setIntensity(0,3);
-        lc.setIntensity(1,3);
-        lc.setIntensity(2,3);
-        lc.setIntensity(3,3);
-        break;
-      case '4':
-        lc.setIntensity(0,4);
-        lc.setIntensity(1,4);
-        lc.setIntensity(2,4);
-        lc.setIntensity(3,4);
-        break;
-      case '5':
-        lc.setIntensity(0,5);
-        lc.setIntensity(1,5);
-        lc.setIntensity(2,5);
-        lc.setIntensity(3,5);
-        break;
-      case '6':
-        lc.setIntensity(0,6);
-        lc.setIntensity(1,6);
-        lc.setIntensity(2,6);
-        lc.setIntensity(3,6);
-        break;
-      case '7':
-        lc.setIntensity(0,7);
-        lc.setIntensity(1,7);
-        lc.setIntensity(2,7);
-        lc.setIntensity(3,7);
-        break;
-      case '8':
-        lc.setIntensity(0,8);
-        lc.setIntensity(1,8);
-        lc.setIntensity(2,8);
-        lc.setIntensity(3,8);
-        break;
-      case '9':
-        lc.setIntensity(0,9);
-        lc.setIntensity(1,9);
-        lc.setIntensity(2,9);
-        lc.setIntensity(3,9);
-        break;
-    }
+      _Eclairage();
     }
 }
