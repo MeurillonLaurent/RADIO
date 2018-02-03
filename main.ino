@@ -49,7 +49,6 @@ void setup()
 void loop()
 {
     char commande=_BluetoothReception();
-    delay(200);
     // réglage de l'heure
     if (commande=='H')
     {
@@ -60,4 +59,8 @@ void loop()
     {
       _Eclairage();
     }
+    lc.setColumn(1,0,B00100100);
+    delay(250);
+    lc.setColumn(1,0,B00000000);
+    delay(250);
 }
