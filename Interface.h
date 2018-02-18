@@ -96,3 +96,144 @@ void _Eclairage()
         break;
     }
 }
+void _LCD_HEURE()
+{
+  byte second, minute, hour, dayOfWeek, dayOfMonth, month, year;
+  // retrieve data from DS3231
+  readDS3231time(&second, &minute, &hour, &dayOfWeek, &dayOfMonth, &month,
+  &year);
+  bcdToDec(minute);
+  switch (minute/10)
+  {
+      case 0:
+        _Ecran(1,0);
+        break;
+      case 1:
+        _Ecran(1,1);
+        break;
+      case 2:
+        _Ecran(1,2);
+        break;
+      case 3:
+        _Ecran(1,3);
+        break;
+      case 4:
+        _Ecran(1,4);
+        break;
+      case 5:
+        _Ecran(1,5);
+        break;
+      case 6:
+        _Ecran(1,6);
+        break;
+      case 7:
+        _Ecran(1,7);
+        break;
+      case 8:
+        _Ecran(1,8);
+        break;
+      case 9:
+        _Ecran(1,9);
+        break;
+    }
+  switch (minute%10)
+  {
+      case 0:
+        _Ecran(0,0);
+        break;
+      case 1:
+        _Ecran(0,1);
+        break;
+      case 2:
+        _Ecran(0,2);
+        break;
+      case 3:
+        _Ecran(0,3);
+        break;
+      case 4:
+        _Ecran(0,4);
+        break;
+      case 5:
+        _Ecran(0,5);
+        break;
+      case 6:
+        _Ecran(0,6);
+        break;
+      case 7:
+        _Ecran(0,7);
+        break;
+      case 8:
+        _Ecran(0,8);
+        break;
+      case 9:
+        _Ecran(0,9);
+        break;
+    }
+  bcdToDec(hour);
+  switch (hour/10)
+  {
+      case 0:
+        _Ecran(3,0);
+        break;
+      case 1:
+        _Ecran(3,1);
+        break;
+      case 2:
+        _Ecran(3,2);
+        break;
+      case 3:
+        _Ecran(3,3);
+        break;
+      case 4:
+        _Ecran(3,4);
+        break;
+      case 5:
+        _Ecran(3,5);
+        break;
+      case 6:
+        _Ecran(3,6);
+        break;
+      case 7:
+        _Ecran(3,7);
+        break;
+      case 8:
+        _Ecran(3,8);
+        break;
+      case 9:
+        _Ecran(3,9);
+        break;
+    }
+  switch (hour%10)
+  {
+      case 0:
+        _Ecran(2,0);
+        break;
+      case 1:
+        _Ecran(2,1);
+        break;
+      case 2:
+        _Ecran(2,2);
+        break;
+      case 3:
+        _Ecran(2,3);
+        break;
+      case 4:
+        _Ecran(2,4);
+        break;
+      case 5:
+        _Ecran(2,5);
+        break;
+      case 6:
+        _Ecran(2,6);
+        break;
+      case 7:
+        _Ecran(2,7);
+        break;
+      case 8:
+        _Ecran(2,8);
+        break;
+      case 9:
+        _Ecran(2,9);
+        break;
+    }
+}

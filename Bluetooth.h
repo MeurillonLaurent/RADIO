@@ -1,3 +1,5 @@
+#ifndef __Bluetooth_h_
+#define __Bluetooth_h_
 // configuration du module Bluetooth
 
 /* Port Tx = 9 Port Rx = 10*/
@@ -18,3 +20,4 @@ char _BluetoothReception ()
    }
 return reception;
 }
+#endif
