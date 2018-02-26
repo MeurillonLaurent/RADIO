@@ -100,7 +100,7 @@ void _LCD_HEURE()
 {
   byte second, minute, hour, dayOfWeek, dayOfMonth, month, year;
   // retrieve data from DS3231
-  readDS3231time(&second, &minute, &hour, &dayOfWeek, &dayOfMonth, &month,
+  _LIRE_HEURE(&second, &minute, &hour, &dayOfWeek, &dayOfMonth, &month,
   &year);
   bcdToDec(minute);
   switch (minute/10)
