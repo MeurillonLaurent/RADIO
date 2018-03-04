@@ -1,41 +1,53 @@
+#ifndef __Interface_h_
+#define __Interface_h_
 // Traitement des commandes de l'interfarce Android
 
 void _Mise_Heure()
 {
+  // animation avant réglage
+  _Ecran(1,3,0);
+  _Efface(2);
+  _Ecran(1,1,3);
+  _Ecran(1,0,4);
+  delay(1000);
+  _Ecran(1,3,1);
+  delay(1000);
+  _Ecran(1,3,2);
+  delay(1000);
   for ( int i=3; i>-1; i--)
   {
     char commande=_BluetoothReception();
     switch (commande)
     {
       case '0':
-        _Ecran(i,0);
+        _Ecran(0,i,0);
         break;
       case '1':
-        _Ecran(i,1);
+        _Ecran(0,i,1);
         break;
       case '2':
-        _Ecran(i,2);
+        _Ecran(0,i,2);
         break;
       case '3':
-        _Ecran(i,3);
+        _Ecran(0,i,3);
         break;
       case '4':
-        _Ecran(i,4);
+        _Ecran(0,i,4);
         break;
       case '5':
-        _Ecran(i,5);
+        _Ecran(0,i,5);
         break;
       case '6':
-        _Ecran(i,6);
+        _Ecran(0,i,6);
         break;
       case '7':
-        _Ecran(i,7);
+        _Ecran(0,i,7);
         break;
       case '8':
-        _Ecran(i,8);
+        _Ecran(0,i,8);
         break;
       case '9':
-        _Ecran(i,9);
+        _Ecran(0,i,9);
         break;
     }
   }
@@ -102,138 +114,17 @@ void _LCD_HEURE()
   // retrieve data from DS3231
   _LIRE_HEURE(&second, &minute, &hour, &dayOfWeek, &dayOfMonth, &month,
   &year);
+  // converti les minutes en décimal
   bcdToDec(minute);
-  switch (minute/10)
-  {
-      case 0:
-        _Ecran(1,0);
-        break;
-      case 1:
-        _Ecran(1,1);
-        break;
-      case 2:
-        _Ecran(1,2);
-        break;
-      case 3:
-        _Ecran(1,3);
-        break;
-      case 4:
-        _Ecran(1,4);
-        break;
-      case 5:
-        _Ecran(1,5);
-        break;
-      case 6:
-        _Ecran(1,6);
-        break;
-      case 7:
-        _Ecran(1,7);
-        break;
-      case 8:
-        _Ecran(1,8);
-        break;
-      case 9:
-        _Ecran(1,9);
-        break;
-    }
-  switch (minute%10)
-  {
-      case 0:
-        _Ecran(0,0);
-        break;
-      case 1:
-        _Ecran(0,1);
-        break;
-      case 2:
-        _Ecran(0,2);
-        break;
-      case 3:
-        _Ecran(0,3);
-        break;
-      case 4:
-        _Ecran(0,4);
-        break;
-      case 5:
-        _Ecran(0,5);
-        break;
-      case 6:
-        _Ecran(0,6);
-        break;
-      case 7:
-        _Ecran(0,7);
-        break;
-      case 8:
-        _Ecran(0,8);
-        break;
-      case 9:
-        _Ecran(0,9);
-        break;
-    }
+    // Unité des minutes chiffre à droite
+    _Ecran(0,0,minute%10);
+    // Dizaine de minute chiffre à gauche
+    _Ecran(0,1,minute/10); 
+  // converti les heures en décimal
   bcdToDec(hour);
-  switch (hour/10)
-  {
-      case 0:
-        _Ecran(3,0);
-        break;
-      case 1:
-        _Ecran(3,1);
-        break;
-      case 2:
-        _Ecran(3,2);
-        break;
-      case 3:
-        _Ecran(3,3);
-        break;
-      case 4:
-        _Ecran(3,4);
-        break;
-      case 5:
-        _Ecran(3,5);
-        break;
-      case 6:
-        _Ecran(3,6);
-        break;
-      case 7:
-        _Ecran(3,7);
-        break;
-      case 8:
-        _Ecran(3,8);
-        break;
-      case 9:
-        _Ecran(3,9);
-        break;
-    }
-  switch (hour%10)
-  {
-      case 0:
-        _Ecran(2,0);
-        break;
-      case 1:
-        _Ecran(2,1);
-        break;
-      case 2:
-        _Ecran(2,2);
-        break;
-      case 3:
-        _Ecran(2,3);
-        break;
-      case 4:
-        _Ecran(2,4);
-        break;
-      case 5:
-        _Ecran(2,5);
-        break;
-      case 6:
-        _Ecran(2,6);
-        break;
-      case 7:
-        _Ecran(2,7);
-        break;
-      case 8:
-        _Ecran(2,8);
-        break;
-      case 9:
-        _Ecran(2,9);
-        break;
-    }
+    // Unité des minutes chiffre à droite
+    _Ecran(0,2,hour%10);
+    // Dizaine d'heure chiffre à gauche
+    _Ecran(0,3,hour/10);
 }
+#endif

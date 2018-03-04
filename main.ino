@@ -46,12 +46,6 @@ void setup()
     Serial.begin(9600);
     // Ouvre la voie série avec le module BT
     HC06.begin(9600);
-    Serial.println("ENTER AT Commands:");
-    _Ecran(0,2);
-    _Ecran(1,3);
-    _Ecran(2,0);
-    _Ecran(3,1);
-
 }
 
 void loop()

@@ -1,4 +1,5 @@
-
+#ifndef __Matrice_h_
+#define __Matrice_h_
 byte t[10][8]=
   {
   // 0 
@@ -112,18 +113,90 @@ byte t[10][8]=
       B00000000
     }
   };
-
+byte Matrice_heure[5][8]=
+{
+// symbole horloge 1 
+  {
+    B00111100,
+    B01000010,
+    B10001001,
+    B10001001,
+    B11111001,
+    B10000001,
+    B01000010,
+    B00111100
+  },
+// symbole horloge 2 
+  {
+    B00111100,
+    B01000010,
+    B10101001,
+    B10011001,
+    B10001001,
+    B10000001,
+    B01000010,
+    B00111100
+  },
+// symbole horloge 3 
+  {
+    B00111100,
+    B01001010,
+    B10001001,
+    B10001001,
+    B10001001,
+    B10000001,
+    B01000010,
+    B00111100
+  },
+// lettre O
+  {
+    B00000000,
+    B00011100,
+    B00100010,
+    B00100010,
+    B00100010,
+    B00100010,
+    B00011100,
+    B00000000
+  },
+// lettre K
+  {
+    B00000000,
+    B00100010,
+    B00100100,
+    B00111000,
+    B00100100,
+    B00100010,
+    B00100010,
+    B00000000
+  }
+};
 int i,Symb;
 // Pin 13 Arduino ==> DataIn Max7219
 // Pin 12 Arduino ==> CLK Max7219
 // Pin 11 Arduino ==> LOAD/CS Max7219
 LedControl lc=LedControl(13,12,11,4);
 
-void _Ecran(int Num_Ecran, int Symb)
+void _Ecran(int Matrice, int Num_Ecran, int Symb)
 {
-  for (int i=0; i<7; i++)
+  for (int i=0; i<8; i++)
   {
-    lc.setRow(Num_Ecran,i,t[Symb][i]);
+    switch (Matrice)
+    {
+      case 0:
+        lc.setRow(Num_Ecran,i,t[Symb][i]);
+        break;
+      case 1:
+        lc.setRow(Num_Ecran,i,Matrice_heure[Symb][i]);
+        break;
+    }
   }
 }
-
+void _Efface(int Num_Ecran)
+{
+  for (int i=0; i<8; i++)
+  {
+    lc.setColumn(Num_Ecran,i,B00000000);
+  }
+}
+#endif
